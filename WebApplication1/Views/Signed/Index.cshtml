@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+<button id="signed" onclick="exc_verify_pdf(1, 'test.pdf')">Signed</button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="~/Scripts/Signed/base64.js"></script>
+<script type="text/javascript" src="~/Scripts/Signed/vgcaplugin.js"></script>
+<script>
+    //HungVX chữ ký số
+    function VerifyPDFCallBack(rv) {
+
+    }
+    function exc_verify_pdf(sessionid, filename) {
+        let fileName1 = 'test' + '.pdf';
+        //createPDF(fileName1);
+        var prms = {};
+        prms["SessionId"] = "";
+        prms["FileName"] = 'https://localhost:44366/' + '/Files/' + fileName1;
+
+        var json_prms = JSON.stringify(prms);
+
+        vgca_sign_pdf(json_prms, VerifyPDFCallBack);
+    } 
+</script>
+
