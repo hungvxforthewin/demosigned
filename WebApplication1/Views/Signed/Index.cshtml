@@ -9,14 +9,14 @@
 <script>
     //HungVX chữ ký số
     function VerifyPDFCallBack(rv) {
-
+        
     }
     function exc_verify_pdf(sessionid, filename) {
-        let fileName1 = 'test' + '.pdf';
+        let fileName1 = window.location.host + '/Files/' + filename;
         //createPDF(fileName1);
         var prms = {};
-        prms["SessionId"] = "";
-        prms["FileName"] = 'https://localhost:44366/' + '/Files/' + fileName1;
+        prms["SessionId"] = sessionid;
+        prms["FileName"] =  fileName1;
 
         var json_prms = JSON.stringify(prms);
 
